@@ -1,14 +1,13 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import App from "./App";
-import Expenses from "./router/expenses";
-import Invoices from "./router/invoices";
-import Invoice from "./router/invoice";
+import { Router } from "./router/index";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <Routes>
+    <Router />
+    {/* <Routes>
       <Route path="/" element={<App />}>
         <Route path="/expenses" element={<Expenses />}></Route>
         <Route path="/invoices" element={<Invoices />}>
@@ -31,6 +30,6 @@ root.render(
           }
         ></Route>
       </Route>
-    </Routes>
+    </Routes> */}
   </BrowserRouter>
 );
