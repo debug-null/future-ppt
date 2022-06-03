@@ -11,7 +11,11 @@ import RevealMarkdown from "@/pages/reveal/markdown";
 import RevealBackground from "@/pages/reveal/background";
 import RevealMedia from "@/pages/reveal/media";
 import RevealCode from "@/pages/reveal/code";
-
+import RevealMath from "@/pages/reveal/math";
+import RevealFragments from "@/pages/reveal/fragments";
+import RevealLink from "@/pages/reveal/link";
+import RevealLayout from "@/pages/reveal/layout";
+import RevealTheme from "@/pages/reveal/theme";
 
 
 
@@ -34,7 +38,12 @@ const routes = [
       { path: "/reveal/markdown", element: <RevealMarkdown /> },
       { path: "/reveal/background", element: <RevealBackground /> },
       { path: "/reveal/media", element: <RevealMedia /> },
-      { path: "/reveal/code", element: <RevealCode /> }
+      { path: "/reveal/code", element: <RevealCode /> },
+      { path: "/reveal/math", element: <RevealMath /> },
+      { path: "/reveal/fragments", element: <RevealFragments /> },
+      { path: "/reveal/link", element: <RevealLink /> },
+      { path: "/reveal/layout", element: <RevealLayout /> },
+      { path: "/reveal/theme", element: <RevealTheme /> }
 
     ]
   },

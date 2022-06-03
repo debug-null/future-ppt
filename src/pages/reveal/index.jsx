@@ -1,4 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
+import 'reveal.js/dist/reveal.css'
+import 'reveal.js/dist/theme/black.css'
+
 export default function App() {
   const example = [
     {
@@ -20,8 +23,29 @@ export default function App() {
     {
       path: "code",
       name: "代码"
+    },
+    {
+      path: "math",
+      name: "数学"
+    },
+    {
+      path: "fragments",
+      name: "碎片"
+    },
+    {
+      path: "link",
+      name: "链接"
+    },
+    {
+      path: "layout",
+      name: "布局"
+    },
+    {
+      path: "theme",
+      name: "主题"
     }
   ];
+  
   return (
     <>
       <div className="nav" style={{ margin: "30px 0" }}>
