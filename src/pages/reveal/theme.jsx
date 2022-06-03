@@ -2,7 +2,7 @@ import { Outlet, Link } from "react-router-dom";
 import React, { Component } from "react";
 import "./index.scss";
 import Reveal from "reveal.js";
-// import 'reveal.js/dist/theme/white.css'
+import 'reveal.js/dist/theme/white.css'
 
 
 import Markdown from "reveal.js/plugin/markdown/markdown.esm.js";

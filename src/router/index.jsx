@@ -1,67 +1,62 @@
 import * as React from "react";
 import { useRoutes } from "react-router-dom";
-import Expenses from "@/pages/expenses";
-import Invoices from "@/pages/invoices";
-import Invoice from "@/pages/invoice";
-import Select from "@/pages/select";
-import NotPage from "@/pages/404";
-import Reveal from "@/pages/reveal/index";
-import RevealMarkup from "@/pages/reveal/markup";
-import RevealMarkdown from "@/pages/reveal/markdown";
-import RevealBackground from "@/pages/reveal/background";
-import RevealMedia from "@/pages/reveal/media";
-import RevealCode from "@/pages/reveal/code";
-import RevealMath from "@/pages/reveal/math";
-import RevealFragments from "@/pages/reveal/fragments";
-import RevealLink from "@/pages/reveal/link";
-import RevealLayout from "@/pages/reveal/layout";
-import RevealTheme from "@/pages/reveal/theme";
-
-
-
-import Home from "@/pages/home";
 
 const routes = [
   {
     path: "/",
-    element: <Home />
+    element: React.lazy(() => import("@/pages/home"))
   },
   {
     path: "/expenses",
-    element: <Expenses />
+    element: React.lazy(() => import("@/pages/expenses"))
   },
   {
     path: "/reveal",
-    element: <Reveal />,
+    element: React.lazy(() => import("@/pages/reveal/index")),
     children: [
-      { path: "/reveal/markup", element: <RevealMarkup /> },
-      { path: "/reveal/markdown", element: <RevealMarkdown /> },
-      { path: "/reveal/background", element: <RevealBackground /> },
-      { path: "/reveal/media", element: <RevealMedia /> },
-      { path: "/reveal/code", element: <RevealCode /> },
-      { path: "/reveal/math", element: <RevealMath /> },
-      { path: "/reveal/fragments", element: <RevealFragments /> },
-      { path: "/reveal/link", element: <RevealLink /> },
-      { path: "/reveal/layout", element: <RevealLayout /> },
-      { path: "/reveal/theme", element: <RevealTheme /> }
-
+      { path: "/reveal/markup", element: React.lazy(() => import("@/pages/reveal/markup")) },
+      { path: "/reveal/markdown", element: React.lazy(() => import("@/pages/reveal/markdown")) },
+      { path: "/reveal/background", element: React.lazy(() => import("@/pages/reveal/background")) },
+      { path: "/reveal/media", element: React.lazy(() => import("@/pages/reveal/media")) },
+      { path: "/reveal/code", element: React.lazy(() => import("@/pages/reveal/code")) },
+      { path: "/reveal/math", element: React.lazy(() => import("@/pages/reveal/math")) },
+      { path: "/reveal/fragments", element: React.lazy(() => import("@/pages/reveal/fragments")) },
+      { path: "/reveal/link", element: React.lazy(() => import("@/pages/reveal/link")) },
+      { path: "/reveal/layout", element: React.lazy(() => import("@/pages/reveal/layout")) },
+      { path: "/reveal/theme", element: React.lazy(() => import("@/pages/reveal/theme")) }
     ]
   },
   {
     path: "/invoices",
-    element: <Invoices />,
+    element: React.lazy(() => import("@/pages/invoices")),
     children: [
-      { index: true, element: <Select /> },
-      { path: "/invoices/:invoiceId", element: <Invoice /> }
+      { index: true, element: React.lazy(() => import("@/pages/select")) },
+      { path: "/invoices/:invoiceId", element: React.lazy(() => import("@/pages/invoice")) }
     ]
   },
   {
     path: "*",
-    element: <NotPage />
+    element: React.lazy(() => import("@/pages/404"))
   }
 ];
 
-const Router = () => useRoutes(routes);
-console.log("🚀 ~ file: index.jsx ~ line 45 ~ routes", routes);
+// 异步加载路由
+const syncRouter = (routes) => {
+  let routerTable = [];
+  routes.forEach((route) => {
+    routerTable.push({
+      path: route.path,
+      element: (
+        <React.Suspense fallback={<div>路由加载中...</div>}>
+          <route.element />
+        </React.Suspense>
+      ),
+      children: route.children && syncRouter(route.children)
+    });
+  });
+
+  return routerTable;
+};
+const Router = () => useRoutes(syncRouter(routes));
 
 export { Router };
