@@ -8,6 +8,18 @@ export default function App() {
     {
       path: "markdown",
       name: "Markdown"
+    },
+    {
+      path: "background",
+      name: "背景"
+    },
+    {
+      path: "media",
+      name: "媒体"
+    },
+    {
+      path: "code",
+      name: "代码"
     }
   ];
   return (

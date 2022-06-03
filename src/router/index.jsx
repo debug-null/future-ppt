@@ -8,6 +8,12 @@ import NotPage from "@/pages/404";
 import Reveal from "@/pages/reveal/index";
 import RevealMarkup from "@/pages/reveal/markup";
 import RevealMarkdown from "@/pages/reveal/markdown";
+import RevealBackground from "@/pages/reveal/background";
+import RevealMedia from "@/pages/reveal/media";
+import RevealCode from "@/pages/reveal/code";
+
+
+
 
 import Home from "@/pages/home";
 
@@ -25,7 +31,11 @@ const routes = [
     element: <Reveal />,
     children: [
       { path: "/reveal/markup", element: <RevealMarkup /> },
-      { path: "/reveal/markdown", element: <RevealMarkdown /> }
+      { path: "/reveal/markdown", element: <RevealMarkdown /> },
+      { path: "/reveal/background", element: <RevealBackground /> },
+      { path: "/reveal/media", element: <RevealMedia /> },
+      { path: "/reveal/code", element: <RevealCode /> }
+
     ]
   },
   {
