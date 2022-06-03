@@ -5,6 +5,9 @@ import Invoices from "@/pages/invoices";
 import Invoice from "@/pages/invoice";
 import Select from "@/pages/select";
 import NotPage from "@/pages/404";
+import Reveal from "@/pages/reveal/index";
+import RevealMarkup from "@/pages/reveal/markup";
+import RevealMarkdown from "@/pages/reveal/markdown";
 
 import Home from "@/pages/home";
 
@@ -16,6 +19,14 @@ const routes = [
   {
     path: "/expenses",
     element: <Expenses />
+  },
+  {
+    path: "/reveal",
+    element: <Reveal />,
+    children: [
+      { path: "/reveal/markup", element: <RevealMarkup /> },
+      { path: "/reveal/markdown", element: <RevealMarkdown /> }
+    ]
   },
   {
     path: "/invoices",
@@ -32,5 +43,6 @@ const routes = [
 ];
 
 const Router = () => useRoutes(routes);
+console.log("🚀 ~ file: index.jsx ~ line 45 ~ routes", routes);
 
 export { Router };
