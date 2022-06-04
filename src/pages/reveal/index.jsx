@@ -43,6 +43,22 @@ export default function App() {
     {
       path: "theme",
       name: "主题"
+    },
+    {
+      path: "transition",
+      name: "动画"
+    },
+    {
+      path: "vertical",
+      name: "垂直"
+    },
+    {
+      path: "note",
+      name: "笔记"
+    },
+    {
+      path: "multiple",
+      name: "多个"
     }
   ];
   
@@ -51,7 +67,7 @@ export default function App() {
       <div className="nav" style={{ margin: "30px 0" }}>
         {example.map((item) => {
           return (
-            <Link style={{ border: "1px solid #f00", padding: "10px", borderRadius: "5px", margin: "0 8px" }} to={item.path} key={item.name}>
+            <Link style={{ border: "1px solid #f00", padding: "10px", borderRadius: "5px", margin: "10px 8px", display: 'inline-block' }} to={item.path} key={item.name}>
               {item.name}
             </Link>
           );

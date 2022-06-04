@@ -23,7 +23,14 @@ const routes = [
       { path: "/reveal/fragments", element: React.lazy(() => import("@/pages/reveal/fragments")) },
       { path: "/reveal/link", element: React.lazy(() => import("@/pages/reveal/link")) },
       { path: "/reveal/layout", element: React.lazy(() => import("@/pages/reveal/layout")) },
-      { path: "/reveal/theme", element: React.lazy(() => import("@/pages/reveal/theme")) }
+      { path: "/reveal/theme", element: React.lazy(() => import("@/pages/reveal/theme")) },
+      { path: "/reveal/transition", element: React.lazy(() => import("@/pages/reveal/transition")) },
+      { path: "/reveal/vertical", element: React.lazy(() => import("@/pages/reveal/vertical")) },
+      { path: "/reveal/note", element: React.lazy(() => import("@/pages/reveal/note")) },
+      { path: "/reveal/multiple", element: React.lazy(() => import("@/pages/reveal/multiple")) },
+
+
+
     ]
   },
   {
