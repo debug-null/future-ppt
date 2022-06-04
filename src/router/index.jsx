@@ -11,6 +11,10 @@ const routes = [
     element: React.lazy(() => import("@/pages/expenses"))
   },
   {
+    path: "/editor",
+    element: React.lazy(() => import("@/pages/editor"))
+  },
+  {
     path: "/reveal",
     element: React.lazy(() => import("@/pages/reveal/index")),
     children: [
