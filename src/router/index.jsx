@@ -12,7 +12,11 @@ const routes = [
   },
   {
     path: "/editor",
-    element: React.lazy(() => import("@/pages/editor"))
+    element: React.lazy(() => import("@/pages/editor/index"))
+  },
+  {
+    path: "/demo",
+    element: React.lazy(() => import("@/pages/demo/moveable"))
   },
   {
     path: "/reveal",
@@ -31,10 +35,7 @@ const routes = [
       { path: "/reveal/transition", element: React.lazy(() => import("@/pages/reveal/transition")) },
       { path: "/reveal/vertical", element: React.lazy(() => import("@/pages/reveal/vertical")) },
       { path: "/reveal/note", element: React.lazy(() => import("@/pages/reveal/note")) },
-      { path: "/reveal/multiple", element: React.lazy(() => import("@/pages/reveal/multiple")) },
-
-
-
+      { path: "/reveal/multiple", element: React.lazy(() => import("@/pages/reveal/multiple")) }
     ]
   },
   {
