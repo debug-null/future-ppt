@@ -26,7 +26,7 @@ class Edit extends Component {
         width: 500,
         height: 500
       },
-      target: null,
+      targetAll: null,
       frame: {
         translate: [0, 0],
         rotate: 0
@@ -54,6 +54,18 @@ class Edit extends Component {
     console.log("🚀 ~ file: index.jsx ~ line 38 ~ Edit ~ constructor ~   this.refsMoveable", this);
 
     window.addEventListener("resize", this.createGrid.bind(this));
+
+    this.deck.addEventListener("click", this.handleRevealClick.bind(this));
+  }
+
+  handleRevealClick(events) {
+    const target = events.target;
+    const classList = target.classList;
+    if (classList && classList.length && classList[0] === "wl-block") {
+      this.setState({
+        targetAll: [target]
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -121,20 +133,21 @@ class Edit extends Component {
     ];
   }
 
+ 
+
   render() {
     return (
       <Layout style={{}}>
         <Layout>
           <Sider style={{ width: "80px", marginLeft: "1px" }}>Sider</Sider>
           <Content>
-            <Moveable ref={[this.refsMoveable]} />
+            <Moveable targetArr={this.state.targetAll} />
 
             <div className="reveal">
               <div className="slides" ref={this.refRevealSlides}>
                 <section data-auto-animate data-background-color="rgb(12, 52, 61)">
-
                   {this.textData().map((item) => {
-                    return <Text ref={this.refsMoveable} data={item} />;
+                    return <Text ref={this.refsMoveable} data={item} key={item.content}/>;
                   })}
 
                   <hr />

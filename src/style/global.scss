@@ -36,4 +36,7 @@ html {
     outline: 1px solid #1baee1;
     // border: 1px solid #1baee1;
   }
+  *{
+    pointer-events: none;
+  }
 }

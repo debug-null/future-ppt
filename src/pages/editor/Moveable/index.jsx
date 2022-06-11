@@ -4,7 +4,8 @@ import Moveable from "react-moveable";
 import DimensionViewable from "../DimensionViewable";
 
 import "./index.scss";
-const MoveableInstance = (props, ref) => {
+const MoveableInstance = ({targetArr}) => {
+console.log("🚀 ~ file: index.jsx ~ line 8 ~ MoveableInstance ~ targetArr", targetArr)
   const [target, setTarget] = React.useState();
   const [frame, setFrame] = React.useState({
     translate: [0, 0],
@@ -26,12 +27,17 @@ const MoveableInstance = (props, ref) => {
     }
   ]);
 
-  const [targetArr, setTargetArr] = React.useState();
 
   React.useEffect(() => {
-    let refs = [...ref].map((item) => item.current);
-    setTargetArr(refs);
+    if (targetArr && targetArr.length) {
+      let targetArr = [...targetArr];
+      console.log("🚀 ~ file: index.jsx ~ line 37 ~ React.useEffect ~ targetArr", targetArr)
+      setTargetArr(targetArr);
+    }
   }, []);
+
+  console.log('=========*********')
+
   return (
     <div className="container">
       <Moveable
@@ -128,4 +134,4 @@ const MoveableInstance = (props, ref) => {
   );
 };
 
-export default forwardRef(MoveableInstance);
+export default MoveableInstance;

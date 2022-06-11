@@ -1,6 +1,5 @@
 import React, { useState, forwardRef } from "react";
 const Text = (props, ref) => {
-  console.log("🚀 ~ file: text.jsx ~ line 3 ~ Text ~ rops, ref", props, ref);
   const [canEdit, setCanEdit] = useState(false);
   const textRef = React.createRef();
 
@@ -10,11 +9,11 @@ const Text = (props, ref) => {
   };
 
   const handleBlur = (events) => {
-    console.log("🚀 ~ file: text.jsx ~ line 10 ~ handleBlur ~ events", events.target.innerHTML);
+    // console.log("🚀 ~ file: text.jsx ~ line 10 ~ handleBlur ~ events", events.target.innerHTML);
   };
 
   const handleInput = (events) => {
-    console.log("🚀 ~ file: text.jsx ~ line 13 ~ handleInput ~ events", events.target);
+    // console.log("🚀 ~ file: text.jsx ~ line 13 ~ handleInput ~ events", events.target);
   };
 
   const handleMouseEnter = (events) => {
